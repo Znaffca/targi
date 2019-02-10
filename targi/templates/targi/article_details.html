@@ -1,0 +1,19 @@
+{% extends 'targi/__base__.html' %}
+{% load comments %}
+{% block title %}Szczegóły targu{% endblock title %}
+{% block content %}
+        <article>
+            <h2>{{ article.title }}</h2>
+            <p>{{ article.text | linebreaks }}</p>
+            <small>{{ article.author }} - {{ article.published }}</small>
+        </article>
+
+    {% get_comment_form for article as form %}
+
+    {% include 'targi/comment_base.html' %}
+
+    {% get_comment_list for article as comment_list %}
+
+    {% include 'targi/comments.html' %}
+
+{% endblock content%}

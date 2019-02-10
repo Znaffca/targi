@@ -1,0 +1,59 @@
+{% extends 'targi/__base__.html' %}
+{% block title %}Katalog targów{% endblock title %}
+{% block content %}
+<h1>Lista targów</h1>
+
+<section class="mr-4 ml-4">
+    <table class="table">
+            <thead>
+              <tr class="d-flex text-color-darker">
+                <th scope="col" class="col-2">DATA DODANIA</th>
+                <th scope="col" class="col-4">NAZWA</th>
+                <th scope="col" class="col-4">OPIS</th>
+                <th scope="col" class="col-2">AKCJE</th>
+              </tr>
+            </thead>
+
+            <tbody class="text-color-lighter">
+            {% for market in markets %}
+              <tr class="d-flex">
+                <th scope="row" class="col-2">{{ market.date_added | date:"d-m-Y" }}</th>
+                <td class="col-4">
+                    {{ market.name }}
+                </td>
+                <td class="col-4">{{ market.description | truncatewords:20  }}</td>
+                  <td class="col-2">
+                      <a href="{% url 'market-details' market.slug %}" class="btn btn-info rounded-0 text-light articles-link">Szczegóły</a><br>
+                      <a href="{% url 'market-details' market.slug %}" class="btn btn-info rounded-0 text-light articles-link">Zgłoś</a>
+                  </td>
+              </tr>
+            {%  endfor %}
+            </tbody>
+    </table>
+</section>
+<div class="row">
+     <div aria-label="Nawigacja" class="pagination-center col-sm-3">
+    {% if markets.has_other_pages %}
+        <ul class="pagination">
+            {% if markets.has_previous %}
+                <li class="page-item"><a href="?page={{ markets.previous_page_number }}" class="page-link">&laquo;</a></li>
+            {% else %}
+            <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+        {% endif %}
+        {% for market in markets.paginator.page_range %}
+                {% if markets.number == market %}
+            <li class="page-item active"><span class="page-link">{{ market }} <span class="sr-only">(aktualny)</span></span></li>
+                {% else %}
+            <li class="page-item"><a href="?page={{ market }}" class="page-link">{{ market }}</a></li>
+                {% endif %}
+        {% endfor %}
+        {% if markets.has_next %}
+            <li class="page-item"><a href="?page={{ markets.next_page_number }}" class="page-link">&raquo;</a></li>
+        {% else %}
+            <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+        {% endif %}
+        </ul>
+    {% endif %}
+     </div>
+</div>
+{% endblock content %}

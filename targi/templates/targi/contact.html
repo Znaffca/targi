@@ -1,0 +1,35 @@
+{% extends 'targi/__base__.html' %}
+{% block title %}Kontakt{% endblock title %}
+{% block content %}
+<h1 style="text-align:center">Kontakt</h1>
+
+    <div id="contact" class="container-fluid bg-grey">
+  <div class="row">
+    <div class="col-sm-5">
+      <p>Napisz do nas, a odpowiemy Ci w ciągu 24 godzin</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Warszawa/Piaseczno</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +48 123 456 789</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> info@polskie-targi.pl</p>
+    </div>
+    <div class="col-sm-7 slideanim">
+        <form method="post">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Imię" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Treść wiadomości" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Wyślij wiadomość</button>
+        </div>
+      </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+{% endblock content%}

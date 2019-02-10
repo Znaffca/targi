@@ -1,0 +1,55 @@
+{% extends 'targi/__base__.html' %}
+{% load static %}
+{% block content %}
+    <h1 class="middle" id="aktualnosci">Aktualności</h1>
+            <div class="line"></div>
+    <section>
+        <div class="row">
+            {% for article in articles %}
+            <div class="card col-sm-6 col-md-4 col-lg-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ article.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ article.published }}</h6>
+                    <p class="card-text">{{ article.text | truncatewords:20 }}</p>
+                        <a href="{% url 'article-details' article.id %}" class="card-link justify-content-between-div">Więcej</a>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </section>
+    <h1 class="middle" id="ostatnio-dodane">Ostatnio dodane</h1>
+            <div class="line"></div>
+    <section>
+        <div class="row">
+            {% for market in markets %}
+                <div class="col-sm-6 col-md-4">
+                    <div class="card mb-4">
+                        {% if market.photo_1 == null %}
+                            <img width="100%" height="225"  src="{% static 'img/Brak.png' %}" alt="{{ market.name }}">
+                        {% else %}
+                            <img width="100%" height="225"  src="{{ market.photo_1.url }}" alt="{{ market.name }}">
+                        {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ market.name }}</h5>
+                                <p class="card-text">{{ market.description | truncatewords:10 }}</p>
+                                    <div class="d-flex justify-content-between-div align-items-center">
+                                        <div class="btn-group">
+                                            <a href="{% url 'market-details' market.slug %}" class="btn btn-sm btn-outline-secondary">Więcej</a>
+                                            {% if user.is_authenticated %}
+                                            <a href="#" class="btn btn-sm btn-outline-secondary" style="margin-left:1px;">Edytuj</a>
+                                            {% endif %}
+                                        </div>
+                                        <small class="text-muted">{{ market.date_added }}</small>
+                                    </div>
+                            </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </section>
+    <h1 class="middle" id="ogloszenia">Ostatnie ogłoszenia</h1>
+    <div class="line"></div>
+
+{% endblock content %}

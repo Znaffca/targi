@@ -1,0 +1,18 @@
+{% extends 'targi/__base__.html' %}
+{% load static %}
+{% block title %}Dodaj targ{% endblock title %}
+{% block content %}
+
+    <h1 class="middle">Dodaj targ</h1>
+
+        <h3 class="middle">Pobierz formularz do uzupełnienia i wczytaj go na stronie</h3>
+            <a href="{% static 'doc/Formularz-targowisk-na-strone.doc' %}" class="btn btn-primary btn-lg btn-block">Pobierz plik formularza</a>
+            <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="collapse" data-target="#collapseForm">Wczytaj plik na stronę</button>
+            <div class="collapse" id="collapseForm">
+                <div class="card">
+                    {% include 'targi/fileform.html' %}
+                </div>
+            </div>
+        <h3 class="middle">Lub uzupełnij dane poniżej</h3>
+    {% include 'targi/form.html' %}
+{% endblock content %}

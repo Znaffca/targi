@@ -1,0 +1,34 @@
+{% extends 'targi/__base__.html' %}
+{% load comments %}
+{% load static %}
+{% block title %}
+    {{ market.name }} - Szczegóły targu
+{% endblock title %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
+{% endblock css %}
+{% block content %}
+<h1 style="text-align:center">{{ market.name }}</h1>
+<div class="row">
+    <div class="col-md-6 border">
+        <p>Rodzaj targu: <strong>{{ market.get_type_display }}</strong></p>
+        <p>Zarządca: <strong>{{ market.administrator }}</strong></p>
+        <p>Województwo: <strong>{{ market.town_city.get_province_display }}</strong></p>
+    </div>
+    <div class="col-md-6 border">
+        {{ market.town_city.name }}
+        {{ market.address }}
+        {{ market.geolocation }}
+    </div>
+</div>
+    {% include 'targi/carousel.html' %}
+
+    {% get_comment_form for market as form %}
+
+    {% include 'targi/comment_base.html' %}
+
+    {% get_comment_list for market as comment_list %}
+
+    {% include 'targi/comments.html' %}
+
+{% endblock content %}

@@ -1,0 +1,55 @@
+{% extends 'targi/__base__.html' %}
+{% block title %}Wyniki wyszukiwania{% endblock title %}
+{% block content %}
+
+<h1 style="text-align:center">Wyniki wyszukiwania dla: <span style="font-style:italic">{{ q }}</span></h1>
+    <section class="mr-4 ml-4">
+    <table class="table">
+            <thead>
+              <tr class="d-flex text-color-darker">
+                <th scope="col" class="col-2">DATA</th>
+                <th scope="col" class="col-4">NAZWA/TYTUŁ</th>
+                <th scope="col" class="col-4">OPIS</th>
+                <th scope="col" class="col-2">AKCJE</th>
+              </tr>
+            </thead>
+
+            <tbody class="text-color-lighter">
+            {% for obj in results_m %}
+              <tr class="d-flex">
+                <th scope="row" class="col-2">{{ obj.date_added | date:"d-m-Y" }}</th>
+                <td class="col-4">
+                    {{ obj.name }}
+                </td>
+                <td class="col-4">{{ obj.description | truncatewords:30  }}</td>
+                  <td class="col-2">
+                      <a href="{% url 'market-details' obj.id %}" class="btn btn-info rounded-0 text-light articles-link">Szczegóły</a><br>
+                  </td>
+              </tr>
+                  {% empty %}
+              <tr>
+                    <td colspan="4" style="text-align:center;">Brak wyników wyszukiwania dla targów</td>
+              </tr>
+            {%  endfor %}
+
+            {% for obj in results_a %}
+              <tr class="d-flex">
+                <th scope="row" class="col-2">{{ obj.created | date:"d-m-Y" }}</th>
+                <td class="col-4">
+                    {{ obj.title }}
+                </td>
+                <td class="col-4">{{ obj.text | truncatewords:30  }}</td>
+                  <td class="col-2">
+                      <a href="{% url 'article-details' obj.id %}" class="btn btn-info rounded-0 text-light articles-link">Szczegóły</a><br>
+                  </td>
+              </tr>
+            {% empty %}
+            <tr>
+                  <td colspan="4" style="text-align:center;">Brak wyników wyszukiwania dla artykułów</td>
+            </tr>
+
+            {%  endfor %}
+            </tbody>
+    </table>
+    </section>
+{% endblock content%}

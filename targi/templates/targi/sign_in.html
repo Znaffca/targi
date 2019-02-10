@@ -1,0 +1,47 @@
+{% extends 'targi/__base__.html' %}
+{% block title %}Rejestracja{% endblock title %}
+{% block content %}
+     <div id="signin" style="margin-bottom:20px;">
+        <div class="container">
+            <div id="signin-row" class="row justify-content-center align-items-center">
+                <div id="signin-column" class="col-md-6">
+                    <div id="signin-box" class="col-md-12">
+                        <form id="signin-form" class="form" action="" method="post">
+                            {% csrf_token %}
+                            <h3 class="text-center text-info margins">Tworzenie użytkownika</h3>
+                            <div class="form-groups">
+                                <label class="text-info">Nazwa użytkownika:<br>
+                                {{ form.username }}
+                                </label>
+                                <br>
+                            </div>
+                            <div class="form-groups">
+                                <label class="text-info">Adres-email:<br>
+                                {{ form.email}}
+                                </label>
+                                <br>
+                            </div>
+                            <div class="form-groups">
+                                <label class="text-info">Hasło:<br>
+                                {{ form.password1 }}
+                                </label>
+                                <br>
+                            </div>
+                            <div class="form-groups">
+                                <label class="text-info">Powtórz hasło:<br>
+                                {{ form.password2 }}
+                                </label>
+                                <br>
+                            </div>
+                                <input type="submit" name="submit" class="btn btn-info btn-md ml-3" value="Zarejestruj się">
+
+                            <div id="register-link" class="text-right">
+                                <a href="{% url 'login' %}" class="text-info">Masz już konto? Zaloguj się</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
