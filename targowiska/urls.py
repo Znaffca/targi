@@ -16,16 +16,29 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, re_path, include
-
 from targowiska import settings
+from django.contrib.auth import views as auth_views
 from targi.views import MainPageView, AllMarketsView, MarketDetailView, AllArticlesView, ArticleDetailView, \
     WorkWithView, AboutView, ContactView, CreateUserView, AddMarketView, BasicSearchView
 
 urlpatterns = [
+    # admin panel
     path('admin/', admin.site.urls),
+    # login, logout
     path('accounts/', include('django.contrib.auth.urls')),
+    # register
     path('accounts/register/', CreateUserView.as_view(), name="register"),
+    # change password - only authenticated users
+    path('password_change/', auth_views.PasswordChangeView.as_view(), name='change-password'),
+    path('password_change/done/', auth_views.PasswordChangeDoneView.as_view(), name='change-password-done'),
+    # reset password
+    path('password_reset/', auth_views.PasswordResetView.as_view(), name='password-reset'),
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='reset-done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name="complete-reseting"),
+    # django comments view
     path(r'comments/', include('django_comments.urls')),
+    # basic views
     path('', MainPageView.as_view(), name="main-page"),
     path('search/', BasicSearchView.as_view(), name="search"),
     path('cooperation/', WorkWithView.as_view(), name="cooperation"),

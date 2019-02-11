@@ -336,7 +336,7 @@ Market card
 
 }
 
-h1 {
+h1, h2 {
     text-align: center;
 }
 
@@ -361,4 +361,18 @@ h3 {
 }
 .block:link {
     color: white;
+}
+
+.p-info {
+    font-size: 16px;
+    text-align: center;
+    color: #0067B6;
+    font-weight: normal;
+}
+
+.p-error {
+    font-size: 14px;
+    text-align: justify;
+    color: brown;
+    font-weight: bold;
 }

@@ -1,9 +1,13 @@
 {% extends 'targi/__base__.html' %}
+{% block title %}Logowanie{% endblock title %}
 {% block content %}
      <div id="login" style="margin-bottom: 20px;">
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
+                    {% if form.errors %}
+                        <p style="text-align:center;color:red;font-weight:bold;">Nazwa użytkownika i hasło nie pasują. Spróbuj ponownie</p>
+                    {% endif %}
                     <div id="login-box" class="col-md-12">
                         <form id="login-form" class="form" action="" method="post">
                             {% csrf_token %}
@@ -18,10 +22,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="remember-me" class="text-info"><span>Zapamiętaj mnie</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                <input type="hidden" name="next" value="{{ next }}" />
                                 <input type="submit" name="submit" class="btn btn-info btn-md" value="Zaloguj się">
                             </div>
                             <div id="register-link" class="text-right">
-                                <a href="{% url 'register' %}" class="text-info">Zarejestruj się</a>
+                                <a href="{% url 'register' %}" class="text-info">Zarejestruj się</a><br>
+                                <a href="{% url "password-reset" %}" class="text-info">Zapomniałeś hasła?</a>
                             </div>
                         </form>
                     </div>
