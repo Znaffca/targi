@@ -1,0 +1,6 @@
+{% extends "targi/__base__.html" %}
+{% block title %}Witamy na stronie{% endblock %}
+{% block content %}
+<h1>Witaj {{ new_user.first_name }}!</h1>
+<p class="p-info">Twoje konto zostało utworzone pomyślnie! Teraz możesz <a href="{% url "login" %}">ZALOGOWAĆ SIĘ</a>.</p>
+{% endblock %}

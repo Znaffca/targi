@@ -19,7 +19,7 @@ from django.urls import path, re_path, include
 from targowiska import settings
 from django.contrib.auth import views as auth_views
 from targi.views import MainPageView, AllMarketsView, MarketDetailView, AllArticlesView, ArticleDetailView, \
-    WorkWithView, AboutView, ContactView, CreateUserView, AddMarketView, BasicSearchView
+    WorkWithView, AboutView, ContactView, CreateUserView, AddMarketView, BasicSearchView, UserEdit, UserView
 
 urlpatterns = [
     # admin panel
@@ -49,6 +49,9 @@ urlpatterns = [
     re_path(r'^market_detail/(?P<slug>(\D)+)', MarketDetailView.as_view(), name="market-details"),
     path('articles/', AllArticlesView.as_view(), name="all-articles"),
     re_path(r'^article_detail/(?P<id>(\d)+)', ArticleDetailView.as_view(), name="article-details"),
+    # profile views
+    path('profile/edit/', UserEdit.as_view(), name="edit-profile"),
+    path('profile/', UserView.as_view(), name="profile"),
 ]
 
 

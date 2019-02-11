@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.db.models import DO_NOTHING
 from django.template.defaultfilters import slugify
@@ -157,3 +158,14 @@ class UploadFile(models.Model):
 
     def __str__(self):
         return self.file.name
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Użytkownik")
+    date_of_birth = models.DateField(blank=True, null=True, verbose_name="Data urodzenia")
+    description = models.CharField(max_length=255, verbose_name="Opis")
+    photo = models.ImageField(upload_to='users/%Y/%m/%d', blank=True, null=True, verbose_name="Zdjęcie profilowe")
+
+    def __str__(self):
+        return f'{self.user.username}'
+

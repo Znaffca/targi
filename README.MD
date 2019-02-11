@@ -1,2 +1,5 @@
-polskie_targ_app
-Created as a final project of Python developer course
+#targowiska - final project
+Created as a final project of Python developer course.
+
+#### To-do-list, known errors:
+- 

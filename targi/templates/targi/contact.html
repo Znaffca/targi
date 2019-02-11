@@ -13,6 +13,7 @@
     </div>
     <div class="col-sm-7 slideanim">
         <form method="post">
+            {% csrf_token %}
       <div class="row">
         <div class="col-sm-6 form-group">
           <input class="form-control" id="name" name="name" placeholder="Imię" type="text" required>

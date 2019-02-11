@@ -1,0 +1,6 @@
+{% extends 'targi/__base__.html' %}
+{% block title %}Szczegóły użytkownika{% endblock title %}
+{% block content %}
+    <h1 style="margin-bottom:20px;">{{ user.username }} - szczegóły użytkownika</h1>
+    <p style="text-align:center;"><a class="btn btn-outline-secondary btn-lg" href="{% url 'edit-profile' %}">Edytuj profil</a></p>
+{% endblock content %}

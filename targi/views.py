@@ -10,8 +10,8 @@ from django.views import View
 
 from targi.doc_import import find_tuple_val, find_products, find_city, is_active, find_choices
 from targowiska.local_settings import EMAIL_HOST_USER
-from targi.forms import AddUserForm, AddMarketForm, ContactForm, UploadForm
-from targi.models import Article, Market, PhotoAlbum, UploadFile
+from targi.forms import AddUserForm, AddMarketForm, ContactForm, UploadForm, UserEditForm, ProfileForm
+from targi.models import Article, Market, PhotoAlbum, UploadFile, UserProfile
 
 
 # Main Page
@@ -51,7 +51,7 @@ class AboutView(View):
         return render(request, 'targi/about.html')
 
 
-# Contact Page with contact form
+# Contact Page with contact form - partially working
 
 class ContactView(View):
 
@@ -62,15 +62,15 @@ class ContactView(View):
     def post(self, request):
         form = ContactForm(request.POST)
         if form.is_valid():
-            subject = form.cleaned_data('name')
-            from_email = form.cleaned_data('email')
-            message = form.cleaned_data('comments')
-            title = f'Polskie targi - pytanie od: {subject}'
+            subject = form.cleaned_data['name']
+            from_email = form.cleaned_data['email']
+            message = form.cleaned_data['comments']
+            title = f'Polskie targi - pytanie od: {subject} - {from_email}'
             try:
-                send_mail(title, message, from_email, ["salacinski.grzegorz@gmail.com"], fail_silently=False)
-            except BadHeaderError:
+                send_mail(title, message, EMAIL_HOST_USER, ["salacinski.grzegorz@gmail.com"], fail_silently=False)
+                return HttpResponseRedirect('/contact')
+            except Exception:
                 return HttpResponse('Błędne dane <a href="{% url \'contact\' %}">Spróbuj jeszcze raz</a> ')
-            return redirect('')
 
 
 # Markets Catalog
@@ -101,6 +101,7 @@ class MarketDetailView(View):
 
 
 # Market Add
+# Market Add from file harcoded - need improvement
 
 class AddMarketView(View):
 
@@ -211,6 +212,33 @@ class CreateUserView(View):
     def post(self, request):
         form = AddUserForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect("login")
+            new_user = form.save(commit=False)
+            new_user.set_password(form.cleaned_data['password'])
+            new_user.save()
+            UserProfile.objects.create(user=new_user)
+            return render(request, "targi/register_done.html", {"new_user": new_user})
         return render(request, 'targi/sign_in.html', {"form": form})
+
+
+# User Edit
+
+class UserEdit(View):
+    def get(self, request):
+        user_form = UserEditForm(instance=request.user)
+        user_profile_form = ProfileForm(instance=request.user.userprofile)
+        return render(request, 'targi/user_edit.html', {"user_form": user_form, "user_profile": user_profile_form})
+
+    def post(self, request):
+        user_form = UserEditForm(instance=request.user, data=request.POST)
+        user_profile_form = ProfileForm(instance=request.user.userprofile, data=request.POST, files=request.FILES)
+        if user_form.is_valid() and user_profile_form.is_valid():
+            user_form.save()
+            user_profile_form.save()
+            return render(request, 'targi/user_edit.html', {"user_form": user_form, "user_profile": user_profile_form})
+
+
+# User View
+
+class UserView(View):
+    def get(self, request):
+        return render(request, 'targi/profile.html', {"user": request.user})

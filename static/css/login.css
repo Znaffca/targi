@@ -18,7 +18,7 @@
 #signin #signin-row #signin-column #signin-box{
   margin-top: 10px;
   max-width: 380px;
-  height: 400px;
+  height: auto;
   border: 1px solid #9C9C9C;
   background-color: #EAEAEA;
 }

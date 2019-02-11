@@ -1,0 +1,19 @@
+{% extends 'targi/__base__.html' %}
+{% block title %}Edytuj Profil{% endblock title %}
+{% block content %}
+    <h1>Edycja konta</h1>
+    <p>Możesz zmienić informacje o sobie za pomocą formularza poniżej:</p>
+        <div class="col-md-6">
+        <form action="" method="post" enctype="multipart/form-data">
+            <table>
+                {% csrf_token %}
+                {{ user_form }}
+                {{ user_profile }}
+            </table>
+            <div style="margin-bottom: 10px;">
+            <input type="submit" class="btn-lg btn-info" value="Zapisz">
+            </div>
+        </form>
+</div>
+
+{% endblock content %}
