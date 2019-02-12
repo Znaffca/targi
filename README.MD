@@ -82,7 +82,7 @@ E_MAIL_ADDRESS_USER = "address where you want to send messages"
 ```sh
 $ psql -U [user_name] -W -f targi.sql -h [host] database_name
 ```
-- run `python manage.py migrate`
+- run `python manage.py makemigrations``python manage.py migrate`
 - start test server.
 ### Enjoy :)
    
