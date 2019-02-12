@@ -1,4 +1,4 @@
-#targowiska - final project <br>
+# targowiska - final project <br>
 Created as a final project of Python developer course. Still in progress...
 
 #### 12.02.2019 - what is working:
