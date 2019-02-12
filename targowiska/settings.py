@@ -115,11 +115,15 @@ USE_TZ = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
+#USE IT TO TEST SENDING EMAILS IN CONSOLE, WITHOUT CONFIGURE
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 EMAIL_HOST = 'smtp.gmail.com'  # since you are using a gmail account
 
 EMAIL_PORT = 587  # Gmail SMTP port for TLS
 
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = True    # For Gmail
 
 # END EMAIL SETTINGS
 

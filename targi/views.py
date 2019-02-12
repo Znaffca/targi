@@ -9,7 +9,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 
 from targi.doc_import import find_tuple_val, find_products, find_city, is_active, find_choices
-from targowiska.local_settings import EMAIL_HOST_USER
+from targowiska.local_settings import EMAIL_HOST_USER, E_MAIL_ADDRESS_USER
 from targi.forms import AddUserForm, AddMarketForm, ContactForm, UploadForm, UserEditForm, ProfileForm
 from targi.models import Article, Market, PhotoAlbum, UploadFile, UserProfile
 
@@ -67,7 +67,7 @@ class ContactView(View):
             message = form.cleaned_data['comments']
             title = f'Polskie targi - pytanie od: {subject} - {from_email}'
             try:
-                send_mail(title, message, EMAIL_HOST_USER, ["salacinski.grzegorz@gmail.com"], fail_silently=False)
+                send_mail(title, message, EMAIL_HOST_USER, [E_MAIL_ADDRESS_USER], fail_silently=False)
                 return HttpResponseRedirect('/contact')
             except Exception:
                 return HttpResponse('Błędne dane <a href="{% url \'contact\' %}">Spróbuj jeszcze raz</a> ')
@@ -131,7 +131,7 @@ class AddMarketView(View):
                 send_mail('Dodano nowe targowisko',
                             'Do twojej aplikacji dodano nowy targ! Sprawdź jego poprawność w panelu administracyjnym',
                             EMAIL_HOST_USER,
-                            ['salacinski.grzegorz@gmail.com'],
+                            [E_MAIL_ADDRESS_USER],
                             fail_silently=False)
                 return HttpResponseRedirect('/markets/')
             except Exception:
