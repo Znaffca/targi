@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="pl" dir="ltr">
+
+  <head>
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Dodaj targ | Polskie Targi</title>
+    <!-- MY CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/form-checkbox.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <!-- Google Fonts used in html -->
+    <link href="https://fonts.googleapis.com/css?family=Charmonman:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:600" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  </head>
+
+<body>
+    <div class="wrapper">
+
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div id="dismiss">
+                <i class="fas fa-times"></i>
+            </div>
+        
+            <div class="sidebar-header">
+                <h3>Użytkownik anonimowy</h3>
+            </div>
+        
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Moje Menu</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="notification.html">Profil</a>
+                            </li>
+                            <li>
+                                <a href="form.html">Dodaj Targ</a>
+                            </li>
+                            <li>
+                                <a href="notification.html">Dodaj artykuł</a>
+                            </li>
+                      </ul>
+                </li>
+                <li>
+                    <a href="markets.html">Katalog targów</a>
+                </li>
+                <li>
+                    <a href="notification.html">O nas</a>
+                </li>
+                <li>
+                    <a href="notification.html">Współpraca</a>
+                </li>
+                <li>
+                    <a href="notification.html">Kontakt</a>
+                </li>
+            </ul>
+        
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="#" class="download">Zaloguj</a>
+                </li>
+                <li>
+                    <a href="#" class="article">Zarejestruj się</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="content">
+
+            <header>
+            <!-- TOP STICKY MENU -->
+                <nav>
+                    <div class="menu-icon">
+                        <i class="fa fa-bars fa-2x"></i>
+                    </div>
+                    <div class="logo">
+                        Polskie <span>targi</span>
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="index.html">Strona główna</a></li>
+                            <li><a href="markets.html">Targowiska</a></li>
+                            <li><a href="notification.html">Artykuły</a></li>
+                            <li><a href="notification.html">Giełda</a></li>
+                            <li><a href="#" id="sidebarCollapse">Więcej...</a></li>
+                            <li>
+                                <div class="search-box">
+                                    <input class="search-txt" type="text" name="" placeholder="Wyszukaj">
+                                    <a class="search-btn" href="#">
+                                        <i class="fas fa-search"></i>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- LANDING PAGE FORM START -->
+            <div class="add-market-form-page">
+                <div class="page-form-content">
+                    <h1>Dodaj<span>targ</span></h1>
+                </div>
+            </div>
+
+            <div class="contents">
+                <div class="testimonials">
+                    <form action="#" method="POST" class="add-market">
+                        <div class="form-section">
+                            <h2 class="form-section-title">Nazwa i opis</h2>
+                            <div class="border-form"></div>
+                                <label><p>Podaj nazwę targu:</p>
+                                    <input type="text" name="name" placeholder="Nazwa targu">
+                                </label><br>
+                                <label><p>Krótki opis miejsca:</p>
+                                    <textarea placeholder="Opis..."></textarea>
+                                </label>
+                        </div>
+
+                        <div class="form-section">
+                            <h2 class="form-section-title">Adres i lokalizacja</h2>
+                            <div class="border-form"></div>
+                                <p>Województwo</p>
+                                <div class="custom-select">
+                                    <select>
+                                        <option value="-1">-województwo-</option>
+                                        <option value="0">dolnośląskie</option>
+                                        <option value="1">kujawsko-pomorskie</option>
+                                        <option value="2">lubelskie</option>
+                                        <option value="3">lubuskie</option>
+                                        <option value="4">łódzkie</option>
+                                        <option value="5">małopolskie</option>
+                                        <option value="6">mazowieckie</option>
+                                        <option value="7">opolskie</option>
+                                        <option value="8">podkarpackie</option>
+                                        <option value="9">podlaskie</option>
+                                        <option value="10">pomorskie</option>
+                                        <option value="11">śląskie</option>
+                                        <option value="12">świętokrzyskie</option>
+                                        <option value="13">warmińsko-mazurskie</option>
+                                        <option value="14">wielkopolskie</option>
+                                        <option value="15">zachodniopomorskie</option>
+                                    </select>
+                                </div>
+                                    <br>
+                                    <label><p>Miejscowość:</p>
+                                        <input type="text" name="town" placeholder="Miejscowość">
+                                    </label><br>
+                                    <label><p>Ulica i numer</p>
+                                        <input type="text" name="street" placeholder="Ulica/nr">
+                                    </label><br>
+                                    <label><p>Współrzędne geograficzne</p>
+                                        <input type="text" name="geolocation" placeholder="Współrzędne geograficzne">
+                                    </label><br>
+                        </div>
+                        <div class="form-section">
+                            <h2 class="form-section-title">Podstawowe informacje</h2>
+                            <div class="border-form"></div>
+                            <p>Typ targu:</p>
+                            <div class="custom-select">
+                                <select>
+                                    <option>Targowisko</option>
+                                    <option>Ryneczek</option>
+                                    <option>Giełda tematyczna</option>
+                                    <option>Jarmark Okolicznościowy</option>
+                                    <option>Targi branżowe</option>
+                                    <option>Rzemieślnik</option>
+                                    <option>Centrum handlowe</option>
+                                    <option>Giełda rolno-towarowa</option>
+                                </select>
+                            </div>
+
+                            <p>Przemiot handlu:</p>
+                            <fieldset id="shop-type">
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="shop-type">
+                                    <span>Tekstylia</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="shop-type">
+                                    <span>Obuwie</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="shop-type">
+                                    <span>Usługi</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="shop-type">
+                                    <span>Owoce i warzywa</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="shop-type">
+                                    <span>Nabiał</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="shop-type">
+                                    <span>Mięso</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="shop-type">
+                                    <span>Ryby</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="shop-type">
+                                    <span>Artykuły spożywcze</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="shop-type">
+                                    <span>Ciasta</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="shop-type">
+                                    <span>Słodycze</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="shop-type">
+                                    <span>Ogrodnictwo</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="shop-type">
+                                    <span>Artykuły budowlane</span>
+                                </label>
+                            </fieldset>
+
+                            <p>Dni otwarcia:</p>
+                            <fieldset id="week-days">
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="week-days">
+                                    <span>Poniedziałek</span>    
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="week-days">
+                                    <span>Wtorek</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="week-days">
+                                    <span>Środa</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="week-days">
+                                    <span>Czwartek</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="week-days">
+                                    <span>Piątek</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="week-days">
+                                    <span>Sobota</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="week-days">
+                                    <span>Niedziela</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="week-days">
+                                    <span>Czynne cały tydzień</span>
+                                </label>
+                            </fieldset>
+
+                            <p>Godziny otwarcia:</p>
+                            <fieldset id="open-time">
+                                <label class="input-time-picker">Od:
+                                        <input type="time"  name="time" min="7:00" max="20:00" class="timepicker">
+                                </label>
+                                <label class="input-time-picker">Do:
+                                    <input type="time"  name="time" min="7:00" max="20:00" class="timepicker">
+                                </label>
+                                
+                            </fieldset>
+                        </div>
+                        <div class="form-section">
+                            <h2 class="form-section-title">Udogodnienia</h2>
+                            <div class="border-form"></div>
+                            <div class="checkbox-left">
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="radio">
+                                    <span>Zadaszenie przejść</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="radio">
+                                    <span>Jedzenie na miejscu</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="radio">
+                                    <span>Radiowęzeł</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="bankomat">
+                                    <span>Miejsca dla niepełnosprawnych</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="bankomat">
+                                    <span>Bankomat w pobliżu</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="public-transport">
+                                    <span>Zasięg transportu publicznego</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="taxi">
+                                    <span>Zasięg taxi</span>
+                                </label>
+                                <label class="pure-material-checkbox">
+                                    <input type="checkbox" name="bikes">
+                                    <span>Miejsca dla rowerów</span>
+                                </label>
+                            </div>
+                                <p>Parking przy targu</p>
+                                <div class="custom-select">
+                                    <select>
+                                        <option value="-1">-wybierz-</option>
+                                        <option value="0">Płatny strzeżony</option>
+                                        <option value="1">Płatny niestrzeżony</option>
+                                        <option value="2">Bezpłatny - wzdłuż ulicy</option>
+                                        <option value="0">Bezpłatny</option>
+                                        <option value="0">Brak</option>
+                                    </select>
+                                </div>
+                        </div>
+                        <div class="form-section">
+                            <h2 class="form-section-title">Multimedia</h2>
+                            <div class="border-form"></div>
+                                <p>Wybierz zdjęcie główne</p>
+                                <input type="file" name="pic" accept="image/*">
+                        </div>
+
+                        <div class="form-submit">
+                            <button type="submit" class="market-add">Dodaj targ</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <footer>
+                <div class="footer-wrapper">
+                    <div class="container-fluid">
+                        <div class="footer-social-icons">
+                            <ul>
+                                <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fab fa-google-plus"></i></a></li>
+                                <li><a href="#" target="_blank"><i class="fab fa-skype"></i></a></li>
+                            </ul>
+                        </div>
+                          
+                        <div class="footer-mid-part">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="footer-section-one">
+                                        <div class="footer-heading">
+                                            <h2>Skontaktuj się z nami</h2>
+                                        </div>
+                          
+                                        <div class="footer-contact-box">
+                                            <div class="footer-contact-icon">
+                                                <i class="fas fa-map-marked-alt"></i>
+                                            </div>
+                                            <div class="footer-contact-text">
+                                                <p> Kudrycze 35, 16-060 Zabłudów</p>
+                                            </div>
+                                            <div class="clr"></div>
+                                        </div>
+                          
+                                        <div class="footer-contact-box">
+                                            <div class="footer-contact-icon">
+                                                <i class="fas fa-mobile-alt"></i>
+                                            </div>
+                                            <div class="footer-contact-text">
+                                                <p><a href="tel:123-456-789">+123 456 789</a></p>
+                                            </div>
+                                            <div class="clr"></div>
+                                        </div>
+                          
+                                        <div class="footer-contact-box">
+                                            <div class="footer-contact-icon">
+                                                <i class="fas fa-envelope"></i>
+                                            </div>
+                                            <div class="footer-contact-text">
+                                                <p><a href="mailto:info@polskie-targi.pl">info@polskie-targi.pl</a></p>
+                                            </div>
+                                            <div class="clr"></div>
+                                        </div>
+                          
+                                        <div class="footer-contact-box">
+                                            <div class="footer-contact-icon">
+                                                <i class="fas fa-globe-europe"></i>
+                                            </div>
+                                            <div class="footer-contact-text">
+                                                <p><a href="https://polskie-targi.pl">https://polskie-targi.pl</a></p>
+                                            </div>
+                                            <div class="clr"></div>
+                                        </div>
+                          
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="footer-section-two">
+                                        <div class="footer-heading">
+                                            <h2>Linki</h2>
+                                        </div>
+                                        <div class="footer-link">
+                                            <ul>
+                                                <li><a href="#">Strona Główna</a></li>
+                                                <li><a href="#">O nas</a></li>
+                                                <li><a href="#">Współpraca</a></li>
+                                                <li><a href="#">Reklama</a></li>
+                                                <li><a href="#">Kontakt</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="footer-section-two">
+                                        <div class="footer-heading">
+                                            <h2>Reklama w serwisie</h2>
+                                        </div>
+                                        <div class="footer-link">
+                                            <ul>
+                                                <li><a href="#">Link</a></li>
+                                                <li><a href="#">Link</a></li>
+                                                <li><a href="#">Link</a></li>
+                                                <li><a href="#">Link</a></li>
+                                                <li><a href="#">Link</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                    <div class="footer-section-three">
+                                        <div class="footer-heading">
+                                            <h2>Napisz do nas</h2>
+                                        </div>
+                                        <div class="footer-form">
+                                        <form method="POST" action="#">
+                                            <div class="footer-form-box">
+                                                <input type="text" class="footer-form-style" placeholder="Imię">
+                                            </div>
+                                            <div class="footer-form-box">
+                                                <input type="email" class="footer-form-style" placeholder="Email">
+                                            </div>
+                                            <div class="footer-form-box">
+                                                <textarea class="footer-form-style" placeholder="Treść wiadomości"></textarea>
+                                            </div>
+                                            <div class="footer-form-box">
+                                                <input type="submit" class="footer-form-submit-style" placeholder="WYŚLIJ">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                          
+                    <div class="footer-bottom">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <p> Własność Polskie Targi sp. z o.o - wszelkie prawa zastrzeżone</p>
+                        </div>
+                    </div>
+                                    
+                    </div>
+                </div>
+            </footer> 
+
+        </div>
+    </div>
+    <div class="overlay"></div>
+    <!-- JAVASCRIPT FILES -->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- jQuery Custom ScrollBar -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- font awesome -->
+    <!-- <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script> -->
+    <!-- BOOTSTRAP -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- custom script for left sidebar -->
+    <script src="js/sidebar.js" type="text/javascript"></script>
+
+    <!-- top menu scripts -->
+    <script type="text/javascript">
+
+    // Menu-toggle button
+
+    $(document).ready(function() {
+            $(".menu-icon").on("click", function() {
+                  $("nav ul").toggleClass("showing");
+            });
+      
+
+      // Scrolling Effect
+
+      $(window).on("scroll", function() {
+            if($(window).scrollTop()) {
+                  $('header nav').addClass('black');
+            }
+
+            else {
+                  $('header nav').removeClass('black');
+            }
+      });
+    });
+    </script>
+    <!-- <script src="js/select_menu.js"></script> -->
+</body>
+</html>
